@@ -65,6 +65,7 @@ type OIDPUserAddress = {
 
 type OIDPUserInfo = {
   sub: string;
+  individual_id?: string;
   name?: string;
   given_name?: string;
   family_name?: string;
@@ -120,6 +121,7 @@ app.get("/oidc/userinfo", {
 
     const userInfo: OIDPUserInfo = {
       sub: "1234567890" + "1234567890" + "123456" + nid, // mosip.kernel.tokenid.length (PSUT) is generally 36 characters
+      individual_id: nid,
       name: `${identity.firstName} ${identity.familyName}`,
       given_name: identity.firstName,
       family_name: identity.familyName,
