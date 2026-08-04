@@ -169,8 +169,9 @@ const pickUserInfo = async (userInfo: OIDPUserInfo) => {
   return {
     sub: userInfo.sub, // usually holds the PSUT
     name: {
-      firstname: userInfo.name?.split(" ")[0],
-      surname: userInfo.name?.split(" ").at(-1),
+      firstname: userInfo.given_name ?? userInfo.name?.split(" ")[0],
+      middlename: userInfo.middle_name,
+      surname: userInfo.family_name ?? userInfo.name?.split(" ").at(-1),
     },
     gender: userInfo?.gender?.toLowerCase(),
     ...(userInfo.birthdate && {

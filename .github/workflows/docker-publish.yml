@@ -10,7 +10,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: opencrvs/mosip-api
+  IMAGE_NAME: psa-crs/mosip-api
 
 jobs:
   build-and-push-image:
